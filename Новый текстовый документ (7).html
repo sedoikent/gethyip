@@ -1,0 +1,946 @@
+
+<html>
+
+<head>
+    <title>Мониторинг ферм с выводом денег: Fruit Farm / фруктовые фермы</title>
+    <meta name="description" content="Kvazar Monitor.top - Мониторинг ферм (Kvazar Monitor / фруктовые фермы) с выводом денег, с нами заработки быстрей и прибыльней">
+    <meta name="keywords" content="мониторинг, ферма, fruit, farm, фруктовые, заработать, деньги">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href="/style/style.css" rel="stylesheet" type="text/css">
+    <link href="/js/jquery.jqplot.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" async="" src="http://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/yepnope.1.5.4-min.js"></script>
+    <script type="text/javascript" src="/js/functions.js"></script>
+	
+	<script type="text/javascript" src="/js/jqplot/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqplot.highlighter.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqplot.cursor.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqueryplot.js"></script> 
+<script type="text/javascript" src="/js/jqplot/jqplot.dateAxisRenderer.min.js"></script>
+
+
+<script type="text/javascript" src="/js/jqplot/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqplot.pointLabels.min.js"></script>
+
+<script type="text/javascript" src="/js/jqplot/jqplot.pieRenderer.min.js"></script>
+<script type="text/javascript" src="/js/jqplot/jqplot.donutRenderer.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+     
+<script src="/scripts/jquery-1.7.2.min.js"></script>
+<script src="/scripts/jquery.cookie.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+
+
+	
+    <link href="http://fonts.googleapis.com/css?family=Lobster&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Didact+Gothic" rel="stylesheet">
+      <link href="http://allfont.ru/allfont.css?fonts=cuprum" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+
+
+<script>
+$(document).ready(function() {   
+    $('a[name=modal]').click(function(e) {
+    e.preventDefault();
+    var id = $(this).attr('href');
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    $('#mask').fadeIn(1000); 
+    $('#mask').fadeTo("slow",0.8); 
+    var winH = $(window).height();
+    var winW = $(window).width();
+    $(id).css('top',  winH/2-$(id).height()/2);
+    $(id).css('left', winW/2-$(id).width()/2);
+    $(id).fadeIn(2000); 
+    });
+    $('.window .close').click(function (e) { 
+    e.preventDefault();
+    $('#mask, .window').hide();
+    }); 
+    $('#mask').click(function () {
+    $(this).hide();
+    $('.window').hide();
+    }); 
+   });  
+</script>
+
+<script>
+$(document).ready(function () {
+        $('a#link1').click(function (e) {
+            $(this).toggleClass('active');
+            $('#content1').toggle();
+                
+            e.stopPropagation();
+        });
+
+        $('#content1').click(function (e) {
+            e.stopPropagation();
+        });
+
+        $('body').click(function () {
+            var link = $('a#link1');
+            if (link.hasClass('active')) {
+                link.click();
+            }
+        });
+    });
+</script>
+
+
+
+
+<style>
+ 
+</style>
+	<body>
+
+
+
+
+                
+    <div style="
+
+    position: fixed;
+    width: 100%;
+    z-index:10;
+    height: 60px;
+    background-color: #252e38;
+    box-shadow: 0 0 25px 0 #131c25;
+
+">
+                <div style="
+    width: 1111px;
+    margin: 0px auto;
+">
+        <div class="hd-menu">
+
+    <div class="fed">
+<div style="
+    margin: 0px -250px;
+    position: absolute;
+    z-index: 2;
+" >
+    <div class="menu_top_us" style="
+    background: rgba(255,255,255,.08);
+    height: 43;
+    margin-top: 6px;
+    padding: 3px 19px;
+">
+    <a id="link1" href="#"  style="color: #c1c1c1;"> <img src="/img/magnifier.png" style="margin: 14px 0px -2px 0px;" ></a>
+</div>
+<div class="menu_top_us">
+    <a href="/" >Главная</a>
+</div>
+<div class="menu_top_us">
+    <a href="#dialog" name="modal">Добавить проект </a>
+</div>
+<div class="menu_top_us">
+    <a href="/tarif" >Наши тарифы </a>
+</div>
+
+</div>
+<div id="content1" style="display: none; position: absolute;margin: 60px -651px;
+    background: rgb(54, 62, 72);
+    padding: 11px 1003px 11px 400px;
+    width: 509px;"> <form method="post" action="/poisk">
+            <input class="poisk_stroka" type="text" name="sear" value="" placeholder="Введите название сайта" size="25">
+            <input class="poisk_ferm" type="submit" value="&#128269;" title="Найти">
+        </form></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+        <ul style="
+    margin: 0;
+    position: relative;
+    z-index: 1;
+
+" >
+
+<style>
+    .next1{
+    width: 7px;
+    transform: rotate(90deg);
+    margin: 0px -10px 1px 1px;
+    }
+
+
+    
+</style>
+            
+            <li class="drop menu_top_us" style=" margin: 5px 0 0 832px;width: 200;height: 28px;">
+                <a href="#">Admin <img src="/img/next1.png" class="next1"></a>
+                
+                <div class="dropdownContain">
+                    <div class="dropOut">
+                        <div class="triangle"></div>
+                        <ul>
+                        	                            <li ><a href="/account" style="color: #777;font-size: 13px;padding: 0; font-weight: 100;">Модерация проектов</a></li>                             <li ><a href="/account/exit" style="color: #777;font-size: 13px;padding: 0; font-weight: 100;">Выйти из аккаунта</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            
+            </li>
+           
+        </ul>
+
+
+
+
+<ul class="sub-menu"> 
+<form action="" method="post">
+    <div style="border: 20px solid transparent;border-bottom: 20px solid white;position: absolute;width: 1;margin: -50px 29px;"></div>
+   Вход в аккаунт
+
+  
+   <input name="log_email" type="text" placeholder="Email" class="log" size="23" maxlength="35" style="
+    width: 198px;
+    margin-right: 7px;
+" />
+  
+  
+
+  <input name="pass" type="password" placeholder="Пароль" class="log" size="23" maxlength="35" />
+<a href="/recovery" style="
+
+    background: #d8d8d8;
+    padding: 10px 16px 11px;
+    color: #4c4c4c;
+    margin: 3px -45px;
+    position: absolute;
+">?</a>
+
+ <br></br>
+    <input type="submit" value="Войти" class="log_bot" /></form>
+</ul> 
+
+</div> 
+
+
+
+
+<style>
+.select {
+    width: 90%;
+    padding: 10 10 10 10;
+}
+.fesswqaq {
+    width: 49%;
+    display: inline-block;
+    text-align: left;
+}
+.inp {
+    width: 90%;
+    padding: 10;
+}
+.boxes {
+    width: 32%;
+    display: inline-block;
+}
+.link {
+    color: #fff;
+    text-decoration: none;
+    margin: 31px 41px 23px 0;
+    border: none;
+}
+</style>
+ <!-- Само окно -->
+<div id="boxes">  
+<div id="dialog" class="window"> 
+<a href="#" class="link close"/><img src="/img/closses.png"></a>
+<div class="content">
+
+
+
+
+
+     <script type="text/javascript">
+
+        function calc() {
+
+            var type_design = document.getElementById("type_design");
+            var type_designn = document.getElementById("type_designn");
+            var is_html = document.getElementById("vip");
+            var rand = document.getElementById("rand");
+            var rek = document.getElementById("rek");
+
+            var result = document.getElementById("result"); 
+ 
+            var price = 0;
+            price += parseInt(type_design.options[type_design.selectedIndex].value);
+            price += (is_html.checked == true) ? parseInt(is_html.value) : 0;
+            price += parseInt(type_designn.options[type_designn.selectedIndex].value);
+            price += (rand.checked == true) ? parseInt(rand.value) : 0;
+            price += (rek.checked == true) ? parseInt(rek.value) : 0;
+
+            result.innerHTML = price;
+        }
+ 
+</script>
+
+
+<form name="" method="post" style="
+    color: gainsboro;
+    margin: 10 -11px 1 24px;
+">
+    <div class="fesswqaq">
+ <p class="pp">Выберите тариф</p>
+<select name="tarif" onchange="calc()" id="type_design" class="select">
+<option value="200">BRONZE( 200 Р.)</option>
+<option value="500">SILVER( 500 Р.)</option>
+<option value="1000">GOLD ( 1000 Р.) </option>
+</select></div> 
+
+    <div class="fesswqaq">
+ <p class="pp">Сумма вклада в проект</p>
+<select name="summa_pay" onchange="calc()" id="type_designn" class="select">
+<option value="100">100р</option>
+<option value="200">200р</option>
+<option value="300">300р</option>
+<option value="500">500р</option>
+<option value="1000">1000р</option>
+<option value="1500">1500р</option>
+</select></div> 
+ <div class="fesswqaq"><p class="pp">Название проекта:</p> <input maxlength="19" name="name_farm" placeholder="Site" type="text" class="inp"></div>
+ <div class="fesswqaq"><p class="pp">Ссылка на проект:</p> <input name="src_farm" placeholder="http://site.ru"  type="text" class="inp"></div>
+  <div class="fesswqaq"><p class="pp">Email администрации (не выкладывается)</p> <input name="email_user" placeholder="admin@gmail.com"  type="text" class="inp"></div>
+ <div class="fesswqaq"><p class="pp">Ссылка на баннер (200 x 300):</p> <input name="src_banner" placeholder="http://site.ru/img/banner.gif" type="text" class="inp"></div>
+ <div class="fesswqaq" ><p class="pp">Реф.система:</p> <input maxlength="19" name="ref" placeholder="15% 10% 5%" type="text" class="inp"></div>
+ <div class="fesswqaq" ><p class="pp">Дата старта:</p> <input maxlength="19" name="data_start" placeholder="10.09.17" type="text" class="inp"></div>
+ <div class="fesswqaq"><p class="pp">Баллы:</p> 
+<select name="bal" class="select">
+<option value="1">Есть</option>
+<option value="2">Нет</option>
+</select> </div>
+<div class="fesswqaq"><p class="pp">Выплаты:</p> 
+<select name="paym" class="select">
+<option value="1">Автоматические</option>
+<option value="2">Ручные</option>
+</select></div> 
+
+
+<br></br>
+
+
+
+<div class="boxes">
+  <input type="checkbox" onchange="calc()" value="500" name="rek" id="rek" class="checkbox_closed">
+  <label for="rek">Рекламма проекта (+500р)</label>
+
+</div>
+
+<div class="boxes">
+  <input type="checkbox" onchange="calc()" value="100" name="rand" id="rand" class="checkbox_closed">
+  <label for="rand">Рандомная ферма (+100р)</label>
+
+</div>
+
+<div class="boxes">
+  <input type="checkbox" onchange="calc()" value="200"  name="vip" id="vip" value="1" class="checkbox_closed">
+  <label for="vip">VIP ферма (+200р)</label>
+
+</div>
+
+
+
+<br></br>
+
+
+        <div style="    width: 24.1%;
+    background: #3b6377;
+    padding: 10;
+    color: white;
+    font-size: 13;
+    text-align: center;
+    cursor: help;">Стоимость: <span id="result">300</span> руб.</div>
+<input name="farm" type="submit"  value="Добавить запись" style="    background: #BD4D3C;
+    border: none;
+    padding: 10px;
+    color: white;
+    width: 94%;
+    font-size: 13px;
+    cursor: pointer;"> 
+</form>
+
+
+
+</div>
+</div>
+</div>
+
+
+<!-- Маска, затемняющая фон -->
+<div id="mask"></div> 
+
+
+
+
+
+
+<!--
+<div style="text-align: center; color: #FF0000; font-size: 18px; font-weight: bold; margin: 10px 20px 20px 20px;">
+ИДУТ ТЕХНИЧЕСКИЕ РАБОТЫ
+</div>
+-->        <div class="clr"></div>
+    </div></div>
+
+
+			<div class="wrap">
+		
+			
+						<div class="content">
+							<div class="cl-left">
+	
+	<style>
+    .title_menu_r:before {
+    background: red;
+    width: 11;
+    height: 11;
+    position: absolute;
+}
+.a_rig_menu{
+color: #1a2633;
+text-decoration: none;
+font-weight: bold;
+font-size: 15px;
+}
+.name_rig_menu{
+    border-left: 2px dashed #3d9d4a;
+    padding-left: 8px;
+    margin-top: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.name_rig_menu:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3d9d4a;
+    position: absolute;
+    margin: 4px -14px;
+}
+.menu_rand {
+    border: 2px solid #90c962;
+    border-radius: 10px;
+}
+.menu_rand_url {
+display: none;
+}
+.menu_rand:hover .menu_rand_url {
+    display: block;
+    border: 2px solid #90c962;
+    border-radius: 10px;
+    text-align: center;
+    margin: -107px -7px;
+    background: #ffffff;
+    z-index: 1;
+    width: 249px;
+    position: absolute;
+    height: 129px;
+    line-height: 5.6;
+    font-size: 23px;
+    font-family: sans-serif;
+}
+.menu_rand:hover .menu_rand_url_a  {
+    display: block;
+    width: 249px;
+    position: absolute;
+    height: 124px;
+    color: black;
+    font-size: 22px;
+    margin: 3px 0px;
+    text-decoration: underline;
+    font-family: cuprum;
+}
+.menu_rand_url_a  {
+    display: none;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:700" rel="stylesheet">
+
+<div class="menu_r" style="background-image: url(/img/money_bag.png);
+    background-repeat: no-repeat;
+    background-position-x: 78px;">
+<div class="name_menu_r">Последнии выплаты</div>
+
+
+    
+
+            
+
+<div class="name_rig_menu"><a href="https://fruitmoney.org " target="_blank" class="a_rig_menu">tender-expert</a> <b style="color: #3db39e;    padding: 0 0px 0 8px;">   <v style="font-size: 10px;color: #00640e;margin: 0px 0px;position: absolute;border-bottom: 1px solid #00640e;">+300 &#8381;</v></b></div>
+
+
+
+  
+</div>
+	
+
+
+
+<div class="menu_r">
+<div class="name_menu_r">Реклама проектов</div>
+
+
+<!-- ТУТ РЕКЛАМА 200x300 -->
+
+<img src="/img/baner200x300.png">
+
+<!-- ТУТ РЕКЛАМА 200x300 -->
+
+
+
+</div>
+
+
+<div class="menu_r menu_rand">
+<div class="name_menu_r" style="color: #517f40;">Рандомный проект</div>
+
+
+
+<div style=" margin: 0px -16px;"> 
+	<img src="/img/gift.png">
+
+    </div>
+
+
+</div></div>
+							<div class="cl-right">
+
+
+             
+
+                               
+
+
+
+
+<div style="
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 72px;
+
+">
+<div class="line_menu"></div>
+<div class="hov_but_menu">
+<div class="line_menu_but"></div>
+<div class="idf_menu">
+<a href="/ferm_new" class="but_menu" style="padding: 9 33px;">Новое</a>
+</div>
+</div>
+<div class="hov_but_menu">
+<div class="line_menu_but"></div>
+<div class="idf_menu">
+<a href="/ferm_pay" class="but_menu" style="padding: 9 27px;">Платят</a>
+</div>
+</div>
+<div class="hov_but_menu">
+<div class="line_menu_but"></div>
+<div class="idf_menu">
+<a href="/ferm_trash" class="but_menu" style="padding: 9px 10px;">Проблемные</a>
+</div>
+</div>
+<div class="hov_but_menu">
+<div class="line_menu_but"></div>
+<div class="idf_menu">
+<a href="/ferm_wait" class="but_menu" style="padding: 9px 18px;">Не платят</a>
+</div>
+</div>
+<div class="hov_but_menu">
+<div class="line_menu_but"></div>
+<div class="idf_menu">
+<a href="/ferm_close" class="but_menu" style="padding: 9px 14px;">Закрылись</a>
+</div>
+</div>
+</div>
+<div class="titl_menu">подразделы нашего<br/> мониторинга</div>
+
+
+
+<style>
+	.opl_mon{
+		    background: #2b3e51;
+    color: white;
+    padding: 10;
+    border: none;
+    margin: -59px 10px 0 258px;
+	}
+    .del_mon {
+    border: none;
+    background: none;
+    margin: -33px 0px 0 277px;
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+}
+</style>
+
+
+
+
+<div class="silver-bk"><div class="clr"></div>  
+
+<!-- -->
+
+<style>
+  .sstat{
+    font-size: 11px;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    padding: 2px 12px;
+    position: relative;
+    margin: 0 0px 0px -17px;
+  }
+</style>
+
+
+<div class="monit_ferm" style="
+    border: 2px solid #ffffff;" >
+    <div class="name_farm"> <div style='background: green;' class='sstat'>ПЛАТЯТ</div> Tender Expert </div><br><br>
+    <img src="https://linkslot.io/uploads/AWTJRNfPxl7nwUGf5LvC4wYh5.gif">
+     <div class="fawawe">
+         
+            <div class="title_farm">
+             <div>Дата старта: 29.11.2019</div>
+             <div>Мониторим с : 24.01.2018</div>
+             <div>Наш вклад: <b>6000 &#8381; </b></div>
+             <div>Выплачено: <b>300 &#8381; </b></div>
+             <div>Выплаты: <b>Ручные</b></div>
+              <div class="views"><i class="views_i"></i> <p style="text-align: right;position: absolute;margin: -1px 27px;color:   #000000;">23606</p></div>
+             <div class="views"><i class="like_i"></i> <p style="text-align: right;position: absolute;margin: -1px 27px;color:   #000000;">238</p></div>
+            </div>
+     </div>
+     <hr>
+     <div style="text-align: center;" >
+
+
+<div class="dregew">3р<div class="driegew">Активация</div></div>
+<div class="dregew" style="color: rgba(255, 255, 255, 0);background: url('');background-repeat: no-repeat;background-position: 18px 14px;
+">`<div class="driegew" style="margin: -15 -17px;width: 84;
+">Серфинг</div></div>
+<div class="dregew" style="color: rgba(255, 255, 255, 0);background: url('');background-repeat: no-repeat;background-position: 18px 14px;
+">`<div class="driegew" style="margin: -15 -17px;width: 84;
+">Оригинал</div></div>    <br></br>
+
+    </div>
+    <br></br>
+    <a href="https://tender-expert.net/?ref=schetovod" target="_blank" style="background: #ffffff;text-decoration: none;padding: 6px;font-size: 11px;color: #3d465e;text-align: center;margin: -25px 2px 0px 103px;position: absolute;
+">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+    <a href="/ferma-info/34" style="
+    background: gray;
+    text-decoration: none;
+    padding: 7px;
+    color: white;
+    width: 122px;
+    text-align: center;
+    margin: -29px 2px 0px 240px;
+    position: absolute;
+    border-bottom-right-radius: 6px; 
+">ПОДРОБНЕЕ</a>
+</div>
+<!-- -->
+
+
+    
+</div>
+<div class="clr"></div> 
+
+								
+							<div class="clr"></div>	
+							</div>
+						<div class="clr"></div>
+						</div>
+						
+			<div class="footer">
+<div class="title_footer">
+   
+      
+         <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
+
+
+
+<div style="
+    display: inline-block;
+"><p style="
+    float: left;
+    font-size: 20px;
+    color: white;
+    font-family: Russo One;
+    text-align: right;
+    margin: 7px 10px 15px 11px;
+">СОВЕРШЕННО<br>ПЕРЕХОДОВ</p> <b style="
+    font-size: 54px;
+    color: black;
+    font-family: monospace;
+    background: gold;
+    padding: 5px;
+    float: right;
+    font-weight: 900;
+        background: -webkit-linear-gradient(#fedd45, #eebb0a);
+    background: -o-linear-gradient(#fedd45, #eebb0a);
+    background: -moz-linear-gradient(#fedd45, #eebb0a);
+    background: -webkit-linear-gradient(#fedd45, #eebb0a);
+}
+">6834</b></div>
+
+</div>
+
+<div class="title_footer" style="
+    height: 78px;
+    margin: 128px 51px -42px 122px;
+">
+<div style="
+    margin: -94px 0px -289px 0px;
+    position: absolute;
+">
+<div style="
+    width: 102px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 70px;
+"><div style="width: 64;height: 64;background: #eaf6f8;    box-shadow: 0px 2px 5px 1px black; padding: 18px;border-radius: 50%;"><img src="/img/viral-marketing.png"></div><p></p></div>
+
+
+
+<div style="
+    width: 102px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 70px;
+"><div style="
+    width: 64;
+    height: 64;
+    background: #eaf6f8;
+    padding: 18px;
+    border-radius: 50%;
+        box-shadow: 0px 2px 5px 1px black;
+"><img src="/img/targeting.png" style="margin: -4px 5px 4px;" ></div><p></p></div>
+
+
+
+<div style="
+    width: 90px;
+    text-align: center;
+    display: inline-block;
+"><div style="
+    width: 64;
+    height: 64;
+    background: #eaf6f8;
+    padding: 18px;
+    border-radius: 50%;
+        box-shadow: 0px 2px 5px 1px black;
+"><img src="/img/pay-per-click.png"></div><p></p></div>
+
+
+
+<div style="
+    width: 32;
+    background: #eaf6f8;
+    padding: 10px;
+    border-radius: 50%;
+        box-shadow: 0px 2px 5px 1px black;
+    /* position: absolute; */
+    margin: -114px 111px;
+"><img src="/img/next.png" style="
+    margin: -1px 2px;
+"></div>
+
+<div style="
+    width: 32;
+    background: #eaf6f8;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    margin: 65px 288px;
+        box-shadow: 0px 2px 5px 1px black;
+"><img src="/img/next.png" style="
+    margin: -1px 2px;
+"></div>
+
+<div style="background: #eaf6f8;width: 88%;height: 4px;margin: 89px 29px;/* position: absolute; */"></div>
+
+<p style="
+    position: absolute;
+    width: 102px;
+    margin: -40px 0px 0px;
+    text-align: center;
+    color: #eaf6f8;
+
+">Зарегистрируйся на нашем мониторинге.</p>
+<p style="position: absolute;width: 139px;margin: -40px 153px 0px;text-align: center;color: #eaf6f8;">Выбери проверенный проект с хорошей репутацией.</p>
+<p style="position: absolute;width: 151px;margin: -40px 330px 0px;text-align: center;color: #eaf6f8;">Начни зарабатывать на этом проекте и добавь свой комментарий.</p>
+
+</div>
+
+</div>
+
+			
+			</div>
+
+       
+			 
+			
+			
+<script>
+var bigfa_scroll = {
+
+    drawCircle: function(id, percentage, color) {
+
+        var width = jQuery(id).width();
+
+        var height = jQuery(id).height();
+
+        var radius = parseInt(width / 2.20);
+
+        var position = width;
+
+        var positionBy2 = position / 2;
+
+        var bg = jQuery(id)[0];
+
+        id = id.split("#");
+
+        var ctx = bg.getContext("2d");
+
+        var imd = null;
+
+        var circ = Math.PI * 2;
+
+        var quart = Math.PI / 2;
+
+        ctx.clearRect(0, 0, width, height);
+
+        ctx.beginPath();
+
+        ctx.strokeStyle = color;
+
+        ctx.lineCap = "square";
+
+        ctx.closePath();
+
+        ctx.fill();
+
+        ctx.lineWidth = 3;
+
+        imd = ctx.getImageData(0, 0, position, position);
+
+        var draw = function(current, ctxPass) {
+
+            ctxPass.putImageData(imd, 0, 0);
+
+            ctxPass.beginPath();
+
+            ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
+
+            ctxPass.stroke();
+
+        }
+
+        draw(percentage / 100, ctx);
+
+    },
+
+    backToTop: function($this) {
+
+        $this.click(function() {
+
+            jQuery("body,html").animate({
+
+                scrollTop: 0
+
+            },
+
+            800);
+
+            return false;
+
+        });
+
+    },
+
+    scrollHook: function($this, color) {
+
+        color = color ? color: "#000000";
+
+        $this.scroll(function() {
+
+            var docHeight = (jQuery(document).height() - jQuery(window).height()),
+
+            $windowObj = $this,
+
+            $per = jQuery(".per"),
+
+            percentage = 0;
+
+            defaultScroll = $windowObj.scrollTop();
+
+            percentage = parseInt((defaultScroll / docHeight) * 100);
+
+            var backToTop = jQuery("#backtoTop");
+
+            if (backToTop.length > 0) {
+
+                if ($windowObj.scrollTop() > 100) {
+
+                    backToTop.addClass("button--show");
+
+                } else {
+
+                    backToTop.removeClass("button--show");
+
+                }
+
+                $per.attr("data-percent", percentage);
+
+                bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
+
+            }
+
+        });
+
+    }
+
+}
+
+jQuery(document).ready(function() {
+
+    jQuery("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+
+    var T = bigfa_scroll;
+
+    T.backToTop(jQuery("#backtoTop"));
+
+    T.scrollHook(jQuery(window), "#13B9CA");//цвет полосы загрузки
+});
+</script>
+
+	</body>
+</html>
+ </div>
+ </div>
+</main>
