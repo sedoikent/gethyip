@@ -1,13 +1,13 @@
 <?PHP
 ######################################
-# Скрипт Fruit Farm
-# Автор Rufus
+# РЎРєСЂРёРїС‚ Fruit Farm
+# РђРІС‚РѕСЂ Rufus
 # ICQ: 819-374
 # Skype: Rufus272
 ######################################
-$_OPTIMIZATION["title"] = "Платящие фермы";
-$_OPTIMIZATION["description"] = "Платящие фермы";
-$_OPTIMIZATION["keywords"] = "Платящие фермы";
+$_OPTIMIZATION["title"] = "РџР»Р°С‚СЏС‰РёРµ С„РµСЂРјС‹";
+$_OPTIMIZATION["description"] = "РџР»Р°С‚СЏС‰РёРµ С„РµСЂРјС‹";
+$_OPTIMIZATION["keywords"] = "РџР»Р°С‚СЏС‰РёРµ С„РµСЂРјС‹";
 $user_id = $_SESSION["user_id"];
 ?>
 
@@ -27,7 +27,7 @@ if($db->NumRows() > 0){
 
     while($new = $db->FetchArray()){
 
-      # Считаем процент выплат #
+      # РЎС‡РёС‚Р°РµРј РїСЂРѕС†РµРЅС‚ РІС‹РїР»Р°С‚ #
      $vipla_procent = (($new["viplat"] / $new["vklad"]) * 100);
 
     ?>
@@ -53,16 +53,16 @@ if ($new["status"] == 3 ) {
 }
 
 if ($new["status"] == 4 ) {
-  $status = "<div style='background: green;' class='sstat'>ПЛАТИТ</div>";
+  $status = "<div style='background: green;' class='sstat'>РџР›РђРўРРў</div>";
 }
 if ($new["status"] == 5 ) {
-  $status = "<div style='background: #ff8f8f;' class='sstat'>ПРОБЛЕМНЫЕ</div>";
+  $status = "<div style='background: #ff8f8f;' class='sstat'>РџР РћР‘Р›Р•РњРќР«Р•</div>";
 }
 if ($new["status"] == 6 ) {
-  $status = "<div style='background: red;' class='sstat'>НЕ ПЛАТЯТ</div>";
+  $status = "<div style='background: red;' class='sstat'>РќР• РџР›РђРўРЇРў</div>";
 }
 if ($new["status"] == 7 ) {
-  $status = "<div style='background: black;' class='sstat'>ЗАКРЫЛИСЬ</div>";
+  $status = "<div style='background: black;' class='sstat'>Р—РђРљР Р«Р›РРЎР¬</div>";
 }
 
 $but_vip = "
@@ -128,12 +128,12 @@ $but_vip = "
 if ($new["bal"] == 2) {
    $bal = " <div class='tex-farm'> 
         <img src='/img/bal.png' style='width: 64;'> 
-        <p style='font-size: 11px;'>БЕЗ БАЛЛОВ</p>
+        <p style='font-size: 11px;'>Р‘Р•Р— Р‘РђР›Р›РћР’</p>
     </div>";
 }
-$paym = "Ручные";
+$paym = "Р СѓС‡РЅС‹Рµ";
 if ($new["paym"] == 1) {
-   $paym = "Автоматические";
+   $paym = "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёРµ";
 }
 if ($new["serf"] == 1) {
    $serf = "/img/checkuy.png";
@@ -159,11 +159,11 @@ $data_add = date("d.m.Y", $new['data_add']);
      <div class="fawawe">
          
             <div class="title_farm">
-             <div>Дата старта: <?=$new["data_start"];?></div>
-             <div>Мониторим с : <?=$data_add;?></div>
-             <div>Наш вклад: <b><?=$new["summa_pay"];?> &#8381; </b></div>
-             <div>Выплачено: <b><?=$new["vivod"];?> &#8381; </b></div>
-             <div>Выплаты: <b><?=$paym;?></b></div>
+             <div>Р”Р°С‚Р° СЃС‚Р°СЂС‚Р°: <?=$new["data_start"];?></div>
+             <div>РњРѕРЅРёС‚РѕСЂРёРј СЃ : <?=$data_add;?></div>
+             <div>РќР°С€ РІРєР»Р°Рґ: <b><?=$new["summa_pay"];?> &#8381; </b></div>
+             <div>Р’С‹РїР»Р°С‡РµРЅРѕ: <b><?=$new["vivod"];?> &#8381; </b></div>
+             <div>Р’С‹РїР»Р°С‚С‹: <b><?=$paym;?></b></div>
               <div class="views"><i class="views_i"></i> <p style="text-align: right;position: absolute;margin: -1px 27px;color:   #000000;"><?=$new["views"];?></p></div>
              <div class="views"><i class="like_i"></i> <p style="text-align: right;position: absolute;margin: -1px 27px;color:   #000000;"><?=$new["likee"];?></p></div>
             </div>
@@ -172,21 +172,21 @@ $data_add = date("d.m.Y", $new['data_add']);
      <div style="text-align: center;" >
 
 
-<div class="dregew"><?=$new['activ'];?>р<div class="driegew">Активация</div></div>
+<div class="dregew"><?=$new['activ'];?>СЂ<div class="driegew">РђРєС‚РёРІР°С†РёСЏ</div></div>
 <div class="dregew" style="color: rgba(255, 255, 255, 0);background: url('<?=$serf;?>');background-repeat: no-repeat;background-position: 18px 14px;
 ">`<div class="driegew" style="margin: -15 -17px;width: 84;
-">Серфинг</div></div>
+">РЎРµСЂС„РёРЅРі</div></div>
 <div class="dregew" style="color: rgba(255, 255, 255, 0);background: url('<?=$orig;?>');background-repeat: no-repeat;background-position: 18px 14px;
 ">`<div class="driegew" style="margin: -15 -17px;width: 84;
-">Оригинал</div></div>    <br></br>
+">РћСЂРёРіРёРЅР°Р»</div></div>    <br></br>
 
     </div>
     <br></br>
     <a href="<?=$new["src_farm"];?>" target="_blank" style="background: #ffffff;text-decoration: none;padding: 6px;font-size: 11px;color: #3d465e;text-align: center;margin: -25px 2px 0px 103px;position: absolute;
-">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+">Р—РђР Р•Р“РРЎРўР РР РћР’РђРўР¬РЎРЇ</a>
     <a href="/ferma-info/<?=$new['id'];?>" style="<?=$but_vip;?>
 
-">ПОДРОБНЕЕ</a>
+">РџРћР”Р РћР‘РќР•Р•</a>
 </div>
 <!-- -->
 
@@ -195,7 +195,7 @@ $data_add = date("d.m.Y", $new['data_add']);
     
     }
 
-}else echo "<div class='not_farm'><img src='/img/browser-n.png'><p>В данном разделе нашего мониторинга еще нет модерируемых проектов. В скором времени данный раздел пополнится новыми проектами.</p></div>";
+}else echo "<div class='not_farm'><img src='/img/browser-n.png'><p>Р’ РґР°РЅРЅРѕРј СЂР°Р·РґРµР»Рµ РЅР°С€РµРіРѕ РјРѕРЅРёС‚РѕСЂРёРЅРіР° РµС‰Рµ РЅРµС‚ РјРѕРґРµСЂРёСЂСѓРµРјС‹С… РїСЂРѕРµРєС‚РѕРІ. Р’ СЃРєРѕСЂРѕРј РІСЂРµРјРµРЅРё РґР°РЅРЅС‹Р№ СЂР°Р·РґРµР» РїРѕРїРѕР»РЅРёС‚СЃСЏ РЅРѕРІС‹РјРё РїСЂРѕРµРєС‚Р°РјРё.</p></div>";
 
 ?>
 
